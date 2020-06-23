@@ -1,0 +1,4 @@
+>> "Simple Puzzle" "A trivial puzzle designed to show how puzzles work"
+
+(cat, "feline companion", DOWN, 0, 0)
+(cab, "a vehicle", ACROSS, 0, 0)

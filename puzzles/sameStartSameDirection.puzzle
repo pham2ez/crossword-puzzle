@@ -1,0 +1,5 @@
+>> "Bad Puzzle" "cat and cats both start at the same location with the same direction"
+
+(cat, "feline companion", DOWN, 0, 1)
+(cats, "feline companion", DOWN, 0, 1)
+(mat, "lounging place for feline companion", ACROSS, 1, 0)

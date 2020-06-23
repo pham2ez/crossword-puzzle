@@ -1,0 +1,4 @@
+>> "Animals" "One particular animal"
+
+(bat, "winged mammal", DOWN, 0, 1)
+(cat, "feline companion", ACROSS, 1, 0)

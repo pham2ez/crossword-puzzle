@@ -1,0 +1,87 @@
+Partitions
+    State: START, CHOOSE, WAIT, PLAY, SCORE
+    START:
+        Enter valid id -> transition to CHOOSE
+        Enter invalid (already used or invalid) -> stay in start w/ message
+    CHOOSE:
+        Select board -> trans to WAIT
+        Select match -> trans to PLAY
+        Invalid match/board -> STAY IN CHOOSE
+    WAIT:
+        Another player joins -> trans to PLAY
+    PLAY:
+        Try valid word -> appears on board
+        try invalid word -> no change & message
+        challenge correct word -> confirmed
+        challenge incorrect word -> removed
+        invalid challenge -> no change & message
+        game completed -> trans to SCORE
+        exit -> trans to SCORE
+    SCORE:
+        new match -> trans to CHOOSE
+        
+    ALL STATES (Except Play)
+        exit -> close client
+
+Testing GameMain & Crossword Canvas
+    - Startup Server with java -cp bin:lib/parserlib.jar crossword.Server [board]
+    - Startup client with java -cp bin crossword.GameMain localhost
+    - Statup second client with same command
+    > Inputs (what is displayed)
+    <-Outputs
+
+    
+Valid Playthrough
+    1st Client
+    >   Verify message specifying START state inputs
+    <-  player1
+    >   Verify matches and boards displayed for CHOOSE
+    <-  NEW test.puzzle test "a testing game"
+    >   Verify message informing user to wait
+    2nd Client
+    <-  player2
+    <-  PLAY test
+    Both
+    >   Verify both clients are showing test board
+    <-  player1 inputs "try 0 sat"
+    >   Verify appears on both
+    <-  player2 inputs "challenge 0 cat"
+    >   Verify sat is replaced by bold cat
+    <-  player1 "try 1 mat"
+    >   Verify both clients in SCORE state
+    <-  player1 exits
+    >   Verify closes
+    <-  player2 NEW MATCH
+    >   verify player2 in CHOOSE state
+    
+    
+Invalid Commands
+    1st Client
+    >   Verify message specifying START state inputs
+    <-  "invalid username"
+    >   Verify START & error message
+    <-  "player1"
+    >   Verify matches and boards displayed for CHOOSE
+    <-  "play board"
+    >   Verify error message
+    <-  "NEW invalid.puzzle test "saf""
+    >   Verify error message
+    <-  NEW test.puzzle test "a testing game"
+    >   Verify message informing user to wait
+    2nd Client
+    <-  player2
+    <-  PLAY test
+    Both
+    >   Verify both clients are showing test board
+    <-  player1 inputs "try 20 sat"
+    >   Verify error message on player1 & no change on player2
+    <-  player1 inputs "try 0 saturn"
+    >   Verify error message on player1 & no change on player2
+    <-  player1 inputs "try 0 cat"
+    >   Verify appears on both
+    <-  player2 inputs "challenge 20 cat"
+    >   Verify error message on player1 & no change on player2
+    <-  player2 inputs "challenge 0 cat"
+    >   Verify sat is replaced by bold cat
+     
+    

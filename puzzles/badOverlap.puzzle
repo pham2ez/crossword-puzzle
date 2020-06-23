@@ -1,0 +1,6 @@
+>> "Bad Overlap" "Puzzle should be rejected because of overlapping words"
+
+(there, "This word is fine", ACROSS, 0, 0)
+(real, "Illegal overlap with there", ACROSS, 0, 3)
+(starting, "Another example, this word is fine", DOWN, 2, 2)
+(art, "Illegal overlap because this word is contained within the previous word", DOWN, 4, 2)

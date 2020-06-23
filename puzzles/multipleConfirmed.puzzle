@@ -1,0 +1,7 @@
+>> "Multiple Confirmed" "checks if you can still confirmed even though the word is technically confirmed"
+
+(cat, "feline companion", DOWN, 0, 1)
+(mat, "lounging place for feline companion", ACROSS, 1, 0)
+(car, "gas powered vehicle", ACROSS, 0, 1)
+(tax, "nobody likes april 15", ACROSS, 2, 1)
+(xray, "musical instrument", DOWN, 2, 3)

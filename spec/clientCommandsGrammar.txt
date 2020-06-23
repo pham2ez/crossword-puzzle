@@ -1,0 +1,4 @@
+COMMAND ::= "BEGIN" | "PLAYAS " ID | "NEW " ID " " ID " " DESCRP | "PLAY " ID | "TRY " ID " " WORD | "CHALLENGE " ID " " WORD | "NEW MATCH" | "EXIT"
+ID ::= [A-Za-z0-9\-]+
+DESCRP ::= "\"" [A-Za-z\ ]+ "\""
+WORD ::= [A-Za-z\-]+
